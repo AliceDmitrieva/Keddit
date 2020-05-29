@@ -23,13 +23,19 @@ class NewsFragment : Fragment() {
     ): View? {
 
         return container?.inflate(R.layout.news_fragment)
-        newsList = view?.findViewById(R.id.news_list) as RecyclerView?
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         news_list.setHasFixedSize(true)
         news_list.layoutManager = LinearLayoutManager(context)
+        initAdapter()
+    }
+
+    private fun initAdapter() {
+        if (news_list.adapter == null) {
+            news_list.adapter = NewsAdapter()
+        }
     }
 
 }
