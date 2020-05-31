@@ -6,6 +6,7 @@ import com.alisadmitrieva.keddit.R
 import com.alisadmitrieva.keddit.commons.RedditNewsItem
 import com.alisadmitrieva.keddit.commons.getFriendlyTime
 import com.alisadmitrieva.keddit.commons.inflate
+import com.alisadmitrieva.keddit.commons.loadImage
 import kotlinx.android.synthetic.main.news_item.view.*
 
 class NewsDelegateAdapter : ViewTypeDelegateAdapter {
@@ -23,7 +24,7 @@ class NewsDelegateAdapter : ViewTypeDelegateAdapter {
         parent.inflate(R.layout.news_item)) {
 
         fun bind(item: RedditNewsItem) = with(itemView) {
-            img_thumbnail.loadImg(item.thumbnail)
+            img_thumbnail.loadImage(item.thumbnail)
             description.text = item.title
             author.text = item.author
             comments.text = "${item.numComments} comments"
