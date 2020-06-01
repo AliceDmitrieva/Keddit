@@ -17,6 +17,8 @@ class NewsFragment : Fragment() {
         news_list
     }
 
+    private val newsManager by lazy { NewsManager() }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,11 +48,13 @@ class NewsFragment : Fragment() {
                     )
                 )
             }
-            (news_list.adapter as NewsAdapter).addNews(news)
         }
     }
 
-    
+    fun requestNews() {
+        //   (news_list.adapter as NewsAdapter).addNews(news)
+    }
+
     private fun initAdapter() {
         if (news_list.adapter == null) {
             news_list.adapter = NewsAdapter()
