@@ -64,7 +64,7 @@ class NewsFragment : RxBaseFragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { retrievedNews ->
-                    (news_list.adapter as NewsAdapter).addNews(retrievedNews)
+                    (news_list.adapter as NewsAdapter).addNews(retrievedNews.news!!)
                 },
                 { e ->
                     Snackbar.make(news_list, e.message ?: "", Snackbar.LENGTH_LONG).show()
