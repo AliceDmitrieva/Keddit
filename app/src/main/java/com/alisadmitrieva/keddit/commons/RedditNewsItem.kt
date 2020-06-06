@@ -18,8 +18,8 @@ data class RedditNews(
     }
 
     protected constructor(parcelIn: Parcel) : this(
-        parcelIn.readString(),
-        parcelIn.readString(),
+        parcelIn.readString()!!,
+        parcelIn.readString()!!,
         mutableListOf<RedditNewsItem>().apply {
             parcelIn.readTypedList(this, RedditNewsItem.CREATOR)
         }
@@ -50,12 +50,12 @@ data class RedditNewsItem(
     }
 
     protected constructor(parcelIn: Parcel) : this(
-        parcelIn.readString(),
-        parcelIn.readString(),
+        parcelIn.readString()!!,
+        parcelIn.readString()!!,
         parcelIn.readInt(),
         parcelIn.readLong(),
-        parcelIn.readString(),
-        parcelIn.readString()
+        parcelIn.readString()!!,
+        parcelIn.readString()!!
     )
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
