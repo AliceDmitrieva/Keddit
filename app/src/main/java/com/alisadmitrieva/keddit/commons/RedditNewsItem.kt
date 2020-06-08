@@ -8,7 +8,7 @@ import com.alisadmitrieva.keddit.adapter.ViewType
 data class RedditNews(
     val after: String,
     val before: String,
-    val news: List<RedditNewsItem>
+    val news: List<RedditNewsItem>?
 ) : Parcelable {
 
     companion object {
