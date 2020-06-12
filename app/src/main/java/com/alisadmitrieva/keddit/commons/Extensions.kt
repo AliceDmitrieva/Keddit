@@ -29,3 +29,5 @@ inline fun <reified T : Parcelable> createParcel(
         override fun createFromParcel(source: Parcel): T? = createFromParcel(source)
         override fun newArray(size: Int): Array<out T?> = arrayOfNulls(size)
     }
+
+inline fun <reified T : Any> mock(): T = Mockito.mock(T::class.java)
