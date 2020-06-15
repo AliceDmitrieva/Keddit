@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.news_fragment.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import javax.inject.Inject
 
 class NewsFragment : RxBaseFragment() {
 
@@ -19,12 +20,18 @@ class NewsFragment : RxBaseFragment() {
         private val KEY_REDDIT_NEWS = "redditNews"
     }
 
+    @Inject
+    lateinit var newsManager: NewsManager
     private var redditNews: RedditNews? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        KedditApp.newsComponent.inject(this)
+    }
+
     private val newsList by lazy {
         news_list
     }
-
-    private val newsManager by lazy { NewsManager() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
